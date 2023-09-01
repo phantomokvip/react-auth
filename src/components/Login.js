@@ -18,6 +18,9 @@ const Login = () => {
         setLoading(true);
         try {
             const response = await axios.post('https://api.keovip11.tv/api/user/login', {
+                headers: {
+                    'authorization': 'ádasdsadasd'
+                },
                 userName: values.username,
                 password: values.password,
             });
@@ -30,9 +33,8 @@ const Login = () => {
                 setError(response.data.message);
             }
         } catch (error) {
-            setError('Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại sau.');
-        } finally {
             setLoading(false);
+            setError('Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại sau.');
         }
     };
 
